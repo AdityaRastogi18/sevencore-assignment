@@ -14,9 +14,8 @@ const App = () => {
   return (
     <Suspense fallback={<Loader />}>
       <div className="flex flex-col justify-between min-h-screen">
-      <BlogPostList />
         <Routes>
-          <Route path="/" element={<BlogPostList />} />
+          <Route path="/sevencore-assignment/" element={<BlogPostList />} />
           <Route path="/post/:id" element={<BlogPostDetails />} />
         </Routes>
         <footer className="bottom-0 text-center py-4 bg-gray-100 mt-4">
