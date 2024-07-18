@@ -20,7 +20,6 @@ const Api = {
     return res.data;
   },
 
-  // ?apiKey=867e258842f04997baddbea23980163f
   // fetchEverything: async (page) => {
   //   const res = await axios.get(import.meta.env.VITE_API_URL + "top-headlines", {
   //     params: {

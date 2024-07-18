@@ -1,18 +1,24 @@
-# React + Vite
+##React + Vite Blog Assignment
 
-Dear Developer who is reading this, I thank you for this assignment. made me put 5 hrs to figure out the test cases. But got to learn something new.
+###Dear Developer,
 
-I have passed the env values directly due to jest not being able to identify meta.import keyword in vite react env.
+Thank you for this assignment opportunity. It has been an enriching experience, allowing me to delve deeper into React, Vite, and testing practices.
 
-I have used react query instead of traditional useEffect hook as it is more powerful and gives the states like loading and error.
+###Project Overview
 
-I have also used the router params to move the data from post list to post details page, for the ease and mentainability, passing through props would have required prop upscalling and drilling & creating a context api didn't seem necessary for just one data object.
+This project is a blog application built using React and Vite. Here are some key points and decisions made during the development:
 
-I have also used the tailwind css for the ease and customization capabilities.
+	1.	Environment Variables: Due to Jest’s inability to recognize meta.import in Vite, environment variables are passed directly.
+	2.	React Query: I used React Query instead of the traditional useEffect hook for data fetching. React Query provides powerful state management with built-in loading and error handling states.
+	3.	Routing and State Management: Router parameters are used to pass data from the post list to the post details page. This approach avoids prop drilling and the unnecessary complexity of context API for a single data object.
+	4.	Styling: Tailwind CSS is used for its ease of customization and utility-first approach.
+	5.	Content Handling: As the content was not fully available, a “Read Full Article” button is provided instead of implementing web scraping.
 
-I wasn't sure what was needed to be done with the content as it's not coming completely so instead of web scraping I decided to put a read full article button. 
+###Challenges Faced
 
-I was unable to host the project on github properly, as it seems I have hit the max limit for api call which is why I'm unable to debug it right now. But will try to fix it ASAP.
+	•	Testing: The test cases required a significant amount of time (5 hours) to configure correctly, but it was a great learning experience.
+	•	Deployment: I faced issues with hosting the project on GitHub Pages due to CORS errors when making API requests to https://newsapi.org.
 
 
-You can clone and run the project and hope you like it. Will be waiting for a mail or call for next round.
+
+    ```Access to XMLHttpRequest at 'https://newsapi.org/v2/top-headlines?country=in&page=1&pageSize=10' from origin 'https://adityarastogi18.github.io' has been blocked by CORS policy: Response to preflight request doesn't pass access control check: It does not have HTTP ok status.
