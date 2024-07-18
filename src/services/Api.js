@@ -7,19 +7,20 @@ const Api = {
   */
 
   fetchTopHeadlines: async (page, pageLimit) => {
-    const res = await axios.get("https://newsapi.org/v2/top-headlines?apiKey=867e258842f04997baddbea23980163f", {
+    const res = await axios.get("https://newsapi.org/v2/top-headlines", {
       params: {
         country: "in",
         page,
         pageSize: pageLimit
       },
-      // headers: {
-      //   "X-Api-Key": "867e258842f04997baddbea23980163f",
-      // },
+      headers: {
+        "X-Api-Key": "867e258842f04997baddbea23980163f",
+      },
     });
     return res.data;
   },
 
+  // ?apiKey=867e258842f04997baddbea23980163f
   // fetchEverything: async (page) => {
   //   const res = await axios.get(import.meta.env.VITE_API_URL + "top-headlines", {
   //     params: {
