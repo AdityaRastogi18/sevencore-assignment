@@ -1,10 +1,19 @@
+import {
+  faArrowLeft,
+  faCircleArrowLeft,
+} from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
-import { useLocation, Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const BlogPostDetails = () => {
   const location = useLocation();
   const post = location.state;
-  const truncatedContent = post.content.substring(0, post.content.indexOf('...') + 3);
+  const navigate = useNavigate();
+  const truncatedContent = post?.content?.substring(
+    0,
+    post?.content?.indexOf("…") + 1
+  );
 
   if (!post) {
     return <div>Error loading post</div>;
@@ -12,17 +21,41 @@ const BlogPostDetails = () => {
 
   return (
     <div className="container mx-auto p-4">
-      <h1 className="text-3xl font-bold mb-4">{post.title}</h1>
+      <div className="flex items-center justify-between mb-7 mt-3">
+        <Link className="text-3xl font-bold " to={"/"}>
+          Blog Post
+        </Link>
+        <button
+          data-testid="back-btn"
+          name="back"
+          role="button"
+          className="border rounded-lg p-2 px-4 hover:bg-gray-50 hover:shadow-sm"
+          onClick={() => navigate("/")}
+        >
+          <FontAwesomeIcon icon={faArrowLeft} />
+        </button>
+      </div>
       {post.urlToImage && (
-        <img src={post.urlToImage} alt={post.title} className="mb-4 w-[30px] h-[30px]" />
+        <img
+          src={post?.urlToImage}
+          alt={post?.title}
+          className="mb-4 w-full h-auto sm:h-[350px] lg:h-[450px] object-fill rounded-md"
+        />
       )}
-      <p>{truncatedContent}</p>
-      <p className="text-gray-500">
-        {new Date(post.publishedAt).toLocaleDateString()}
+      <h1 className="sm:text-3xl font-bold my-3">{post?.title}</h1>
+      <div className="flex gap-3 mb-2">
+        <p className=" text-slate-500">{post?.author}</p>
+        &#x2022;
+        <p className="text-gray-500">
+          {new Date(post?.publishedAt).toLocaleDateString()}
+        </p>
+      </div>
+      <p>
+        {truncatedContent ? truncatedContent : post?.description}{" "}
+        <a className="text-blue-500" href={post?.url} target="_blank">
+          Read Complete Article.
+        </a>
       </p>
-      <Link to="/" className="text-blue-600 hover:underline">
-        Back to Posts
-      </Link>
     </div>
   );
 };

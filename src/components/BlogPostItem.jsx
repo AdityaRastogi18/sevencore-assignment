@@ -13,13 +13,18 @@ const BlogPostItem = ({ post, index }) => {
           {post?.title}
         </h2>
         <p className="pb-2">{post?.description}</p>
+        <div className="flex gap-2 ">
+        <p className=" text-slate-500">By {post?.author}</p>
+        &#x2022;
         <p className="text-gray-500">
           {new Date(post?.publishedAt).toLocaleDateString()}
         </p>
       </div>
+      </div>
       
         <img
           src={post?.urlToImage}
+          alt={post?.title}
           className="aspect-square object-fill w-full h-full md:w-[100px] rounded-md"
         />
       
