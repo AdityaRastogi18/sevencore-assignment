@@ -14,6 +14,7 @@ const App = () => {
   return (
     <Suspense fallback={<Loader />}>
       <div className="flex flex-col justify-between min-h-screen">
+      <BlogPostList />
         <Routes>
           <Route path="/" element={<BlogPostList />} />
           <Route path="/post/:id" element={<BlogPostDetails />} />
