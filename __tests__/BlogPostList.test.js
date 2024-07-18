@@ -1,5 +1,11 @@
 import React from "react";
-import { render, fireEvent, screen, waitFor } from "@testing-library/react";
+import {
+  render,
+  fireEvent,
+  screen,
+  waitFor,
+  getByTestId,
+} from "@testing-library/react";
 import { useQuery } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import BlogPostList from "../src/components/BlogPostList";
@@ -34,7 +40,7 @@ describe("BlogPostList Component", () => {
         <BlogPostList />
       </MemoryRouter>
     );
-    expect(screen.getByTestId("loader")).toBeInTheDocument(); 
+    expect(screen.getByTestId("loader")).toBeInTheDocument();
   });
 
   it("renders error message when there is an error", () => {
@@ -66,15 +72,13 @@ describe("BlogPostList Component", () => {
       </MemoryRouter>
     );
 
-    fireEvent.click(getByText("Next")); 
+    fireEvent.click(screen.getByTestId("Next"));
 
-    await waitFor(() => {
-      expect(useQuery).toHaveBeenCalledWith(
-        ["posts", 1, 10], 
-        expect.any(Function),
-        { keepPreviousData: true }
-      );
-    });
+    expect(useQuery).toHaveBeenCalledWith(
+      ["posts", 1, 10],
+      expect.any(Function),
+      { keepPreviousData: true }
+    );
   });
 
   it("changes page size correctly", () => {

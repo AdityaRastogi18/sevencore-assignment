@@ -16,8 +16,6 @@ const BlogPostList = () => {
     }
   );
 
-  console.log("page", page)
-
   if (isLoading) return <Loader />;
   if (isError) return <div>Error loading posts</div>;
 
@@ -28,9 +26,6 @@ const BlogPostList = () => {
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold mb-7 mt-3">
         React Blog Posts Assignment for SevenCore
-      </h1>
-      <h1 className="text-3xl font-bold mb-7 mt-3">
-        Page - {page}
       </h1>
       <div>
         {posts.map((post, index) => (
@@ -62,6 +57,7 @@ const BlogPostList = () => {
             disabled={page >= totalPages}
             onClick={() => setPage(page + 1)}
             className="btn-grp-end"
+            data-testid="Next"
           >
             Next
           </button>
