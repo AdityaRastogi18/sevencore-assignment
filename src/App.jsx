@@ -7,9 +7,6 @@ import { faCopyright } from "@fortawesome/free-solid-svg-icons";
 const BlogPostList = lazy(() => import("./components/BlogPostList"));
 const BlogPostDetails = lazy(() => import("./components/BlogPostDetails"));
 
-console.log("coming here with details", BlogPostDetails)
-console.log("coming here with list", BlogPostList)
-
 const App = () => {
   return (
     <Suspense fallback={<Loader />}>
