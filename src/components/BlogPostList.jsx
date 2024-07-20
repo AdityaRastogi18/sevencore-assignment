@@ -3,6 +3,7 @@ import { useQuery } from "react-query";
 import Api from "../services/Api";
 import BlogPostItem from "./BlogPostItem";
 import Loader from "./Loader";
+import ErrorMessage from "./ErrorMessage";
 
 const BlogPostList = () => {
   const [page, setPage] = useState(1);
@@ -17,7 +18,7 @@ const BlogPostList = () => {
   );
 
   if (isLoading) return <Loader />;
-  if (isError) return <div>Error loading posts</div>;
+  if (isError) return <ErrorMessage />;
 
   const posts = data.articles;
   const totalPages = Math.ceil(data.totalResults / pageLimit);
