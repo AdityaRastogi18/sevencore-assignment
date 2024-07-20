@@ -9,7 +9,7 @@ const Api = {
   */
 
   fetchTopHeadlines: async (page, pageLimit) => {
-    const res = await axios.get(proxyUrl + "https://newsapi.org/v2/top-headlines", {
+    const res = await axios.get( "https://newsapi.org/v2/top-headlines", {
       params: {
         country: "in",
         page,
