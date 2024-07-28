@@ -14,6 +14,7 @@ const BlogPostList = () => {
     () => Api.fetchTopHeadlines(page, pageLimit),
     {
       keepPreviousData: true,
+      refetchOnWindowFocus: false,
     }
   );
 
@@ -30,7 +31,10 @@ const BlogPostList = () => {
       </h1>
       <div>
         {posts.map((post, index) => (
-          <div key={index} className="p-4 border rounded-md gap-4 mb-3 hover:bg-blue-50 hover:shadow-md">
+          <div
+            key={index}
+            className="p-4 border rounded-md gap-4 mb-3 hover:bg-blue-50 hover:shadow-md"
+          >
             <BlogPostItem post={post} index={index} />
           </div>
         ))}
